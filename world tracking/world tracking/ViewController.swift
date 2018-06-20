@@ -30,23 +30,26 @@ class ViewController: UIViewController {
     }
 
     @IBAction func add(_ sender: Any) {
+        let doorNode = SCNNode(geometry: SCNPlane(width: 0.03, height: 0.06))
+            doorNode.geometry?.firstMaterial?.diffuse.contents = UIColor.brown
+        let boxNode = SCNNode(geometry: SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0))
+            boxNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
         let node = SCNNode()
-        let path = UIBezierPath()
-        path.move(to: CGPoint(x: 0, y: 0))
-        path.addLine(to: CGPoint(x: 0, y: 0.2))
-        path.addLine(to: CGPoint(x: 0.2, y: 0.3))
-        path.addLine(to: CGPoint(x: 0.4, y: 0.2))
-        path.addLine(to: CGPoint(x: 0.4, y: 0))
-        let shape = SCNShape(path: path, extrusionDepth: 0.2)
-        node.geometry = shape
+        node.geometry = SCNPyramid(width: 0.1, height: 0.1, length: 0.1)
         node.geometry?.firstMaterial?.specular.contents = UIColor.white
         node.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
+
+        node.position = SCNVector3(0, 0.05, -0.5)
         
-//        let x = randoNumbers(firstNum: -0.3, secondNum: 0.3)
-//        let y = randoNumbers(firstNum: -0.3, secondNum: 0.3)
         
-        node.position = SCNVector3(0, 0, -0.6)
+        boxNode.position = SCNVector3(0, -0.05, 0)
+        doorNode.position = SCNVector3(0, -0.02, 0.051)
+
         self.sceneView.scene.rootNode.addChildNode(node)
+        node.addChildNode(boxNode)
+        boxNode.addChildNode(doorNode)
+    
+        
     }
     @IBAction func reset(_ sender: Any) {
         self.restartSession()
