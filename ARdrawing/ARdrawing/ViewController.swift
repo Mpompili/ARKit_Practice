@@ -34,17 +34,27 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let orientation = SCNVector3(-transform.m31, -transform.m32, -transform.m33)
         let location = SCNVector3(transform.m41,transform.m42,transform.m43)
         let currentPositionOfCamera  = orientation + location
-        if draw.isHighlighted {
-            let sphereNode = SCNNode(geometry: SCNSphere(radius: 0.02))
-        sphereNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
-            sphereNode.position = currentPositionOfCamera
-        self.sceneView.scene.rootNode.addChildNode(sphereNode)
-//            print("draw button being pressed")
-            print("currentPos: ")
-            print(currentPositionOfCamera)
-            print("location of cam: ")
-            print(location.x, location.y, location.z)
+        DispatchQueue.main.async {
+            if self.draw.isHighlighted {
+                let sphereNode = SCNNode(geometry: SCNSphere(radius: 0.02))
+                sphereNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+                sphereNode.position = currentPositionOfCamera
+                self.sceneView.scene.rootNode.addChildNode(sphereNode)
+            }
+            else {
+                let pointer = SCNNode(geometry: SCNSphere(radius: 0.01))
+                pointer.geometry?.firstMaterial?.diffuse.contents = UIColor.yellow
+                pointer.position = currentPositionOfCamera
+                pointer.name = "pointer"
+                self.sceneView.scene.rootNode.enumerateChildNodes({ (node, _) in
+                    if node.name == "pointer" {
+                        node.removeFromParentNode()
+                    }
+                })
+                self.sceneView.scene.rootNode.addChildNode(pointer)
+            }
         }
+      
     }
 
 }
