@@ -39,7 +39,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sphereNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
             sphereNode.position = currentPositionOfCamera
         self.sceneView.scene.rootNode.addChildNode(sphereNode)
-            print("draw button being pressed")
+//            print("draw button being pressed")
+            print("currentPos: ")
+            print(currentPositionOfCamera)
+            print("location of cam: ")
+            print(location.x, location.y, location.z)
         }
     }
 
