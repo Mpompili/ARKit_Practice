@@ -1,0 +1,6 @@
+framework module Pods_ARGame {
+  umbrella header "Pods-ARGame-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -29,7 +29,7 @@
                                 </constraints>
                                 <state key="normal" image="play"/>
                                 <connections>
-                                    <action selector="play:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dbi-64-Ww4"/>
+                                    <action selector="play:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lvy-s9-4ig"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abd-TS-liH">
@@ -58,6 +58,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="playBttn" destination="aos-gi-ltb" id="HmZ-ac-dvD"/>
                         <outlet property="sceneView" destination="9oi-Rk-mkk" id="Gb6-fr-NJ5"/>
                     </connections>
                 </viewController>

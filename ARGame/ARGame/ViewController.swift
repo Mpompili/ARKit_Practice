@@ -12,8 +12,14 @@ import ARKit
 class ViewController: UIViewController {
 
    
+    
+
     @IBOutlet weak var sceneView: ARSCNView!
     let config = ARWorldTrackingConfiguration()
+    
+
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +36,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func reset(_ sender: Any) {
-    }
-    @IBAction func play(_ sender: Any) {
-        self.addNode()
-        self.play.isEnabled = false
-        
-    }
+    
     
     func addNode() {
         let slenderScene = SCNScene(named: "art.scnassets/SlenderMan_Model.scn")
@@ -69,7 +69,17 @@ class ViewController: UIViewController {
         disappear.duration = 1.5
         node.addAnimation(disappear, forKey: "opacity")
     }
+    
+    @IBOutlet weak var playBttn: UIButton!
+    @IBAction func reset(_ sender: Any) {
+    }
 
-
+    @IBAction func play(_ sender: Any) {
+        self.addNode()
+        self.playBttn.isEnabled = false 
+    }
+    
+    
+    
 }
 

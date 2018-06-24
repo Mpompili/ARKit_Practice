@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22B7411E1773F6AF9D89EDE3 /* Pods_ARGameUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C976BD8C39FEA6F6728B482D /* Pods_ARGameUITests.framework */; };
 		3436F30520E027DC00ED5F83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3436F30420E027DC00ED5F83 /* AppDelegate.swift */; };
 		3436F30720E027DC00ED5F83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3436F30620E027DC00ED5F83 /* ViewController.swift */; };
 		3436F30A20E027DC00ED5F83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3436F30820E027DC00ED5F83 /* Main.storyboard */; };
@@ -16,6 +17,8 @@
 		3436F32520E027DE00ED5F83 /* ARGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3436F32420E027DE00ED5F83 /* ARGameUITests.swift */; };
 		3436F33520E0309300ED5F83 /* SlenderMan_Model.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 3436F33420E0309200ED5F83 /* SlenderMan_Model.mtl */; };
 		3436F33820E0321900ED5F83 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 3436F33720E0321900ED5F83 /* art.scnassets */; };
+		C0A7250A95831D391BD7CB8E /* Pods_ARGameTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9314ED1E9026BBDC96400E0 /* Pods_ARGameTests.framework */; };
+		CD74FC362625F4DFEAC324F3 /* Pods_ARGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B24337B97D141549F379CE18 /* Pods_ARGame.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		12F674813430F09D03146B7D /* Pods-ARGameUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARGameUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ARGameUITests/Pods-ARGameUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3436F30120E027DC00ED5F83 /* ARGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3436F30420E027DC00ED5F83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3436F30620E027DC00ED5F83 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +55,14 @@
 		3436F32620E027DE00ED5F83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3436F33420E0309200ED5F83 /* SlenderMan_Model.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SlenderMan_Model.mtl; path = ../../../SlenderMan_Model.mtl; sourceTree = "<group>"; };
 		3436F33720E0321900ED5F83 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		3509B09AD10235DC07558726 /* Pods-ARGame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARGame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARGame/Pods-ARGame.debug.xcconfig"; sourceTree = "<group>"; };
+		54FD38F38E3C649C551F131A /* Pods-ARGameTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARGameTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ARGameTests/Pods-ARGameTests.release.xcconfig"; sourceTree = "<group>"; };
+		8FBB43EB1BACC9DC5976D192 /* Pods-ARGameUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARGameUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARGameUITests/Pods-ARGameUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A673C12A26E98D8808499375 /* Pods-ARGame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARGame.release.xcconfig"; path = "Pods/Target Support Files/Pods-ARGame/Pods-ARGame.release.xcconfig"; sourceTree = "<group>"; };
+		B24337B97D141549F379CE18 /* Pods_ARGame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARGame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9314ED1E9026BBDC96400E0 /* Pods_ARGameTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARGameTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C976BD8C39FEA6F6728B482D /* Pods_ARGameUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARGameUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6CF420DE4EBFAC8D3B8F969 /* Pods-ARGameTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARGameTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARGameTests/Pods-ARGameTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD74FC362625F4DFEAC324F3 /* Pods_ARGame.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0A7250A95831D391BD7CB8E /* Pods_ARGameTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +86,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22B7411E1773F6AF9D89EDE3 /* Pods_ARGameUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B9CD671BF43FC7FA137B068 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B24337B97D141549F379CE18 /* Pods_ARGame.framework */,
+				C9314ED1E9026BBDC96400E0 /* Pods_ARGameTests.framework */,
+				C976BD8C39FEA6F6728B482D /* Pods_ARGameUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3436F2F820E027DC00ED5F83 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +110,8 @@
 				3436F31820E027DE00ED5F83 /* ARGameTests */,
 				3436F32320E027DE00ED5F83 /* ARGameUITests */,
 				3436F30220E027DC00ED5F83 /* Products */,
+				8CB3BA1ECFC526D09BD92B86 /* Pods */,
+				0B9CD671BF43FC7FA137B068 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +158,19 @@
 			path = ARGameUITests;
 			sourceTree = "<group>";
 		};
+		8CB3BA1ECFC526D09BD92B86 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3509B09AD10235DC07558726 /* Pods-ARGame.debug.xcconfig */,
+				A673C12A26E98D8808499375 /* Pods-ARGame.release.xcconfig */,
+				D6CF420DE4EBFAC8D3B8F969 /* Pods-ARGameTests.debug.xcconfig */,
+				54FD38F38E3C649C551F131A /* Pods-ARGameTests.release.xcconfig */,
+				8FBB43EB1BACC9DC5976D192 /* Pods-ARGameUITests.debug.xcconfig */,
+				12F674813430F09D03146B7D /* Pods-ARGameUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +178,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3436F32920E027DE00ED5F83 /* Build configuration list for PBXNativeTarget "ARGame" */;
 			buildPhases = (
+				FE6EF8B4582BC91C1D4CAB70 /* [CP] Check Pods Manifest.lock */,
 				3436F2FD20E027DC00ED5F83 /* Sources */,
 				3436F2FE20E027DC00ED5F83 /* Frameworks */,
 				3436F2FF20E027DC00ED5F83 /* Resources */,
+				D0FBC72B8CB0384944078ABA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,6 +197,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3436F32C20E027DE00ED5F83 /* Build configuration list for PBXNativeTarget "ARGameTests" */;
 			buildPhases = (
+				BED77C427B5673523F2BBF1F /* [CP] Check Pods Manifest.lock */,
 				3436F31120E027DE00ED5F83 /* Sources */,
 				3436F31220E027DE00ED5F83 /* Frameworks */,
 				3436F31320E027DE00ED5F83 /* Resources */,
@@ -173,6 +216,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3436F32F20E027DE00ED5F83 /* Build configuration list for PBXNativeTarget "ARGameUITests" */;
 			buildPhases = (
+				85F403713F8256887A98F20C /* [CP] Check Pods Manifest.lock */,
 				3436F31C20E027DE00ED5F83 /* Sources */,
 				3436F31D20E027DE00ED5F83 /* Frameworks */,
 				3436F31E20E027DE00ED5F83 /* Resources */,
@@ -258,6 +302,81 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		85F403713F8256887A98F20C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ARGameUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BED77C427B5673523F2BBF1F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ARGameTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0FBC72B8CB0384944078ABA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ARGame/Pods-ARGame-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Each/Each.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Each.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ARGame/Pods-ARGame-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE6EF8B4582BC91C1D4CAB70 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ARGame-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3436F2FD20E027DC00ED5F83 /* Sources */ = {
@@ -436,6 +555,7 @@
 		};
 		3436F32A20E027DE00ED5F83 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3509B09AD10235DC07558726 /* Pods-ARGame.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -454,6 +574,7 @@
 		};
 		3436F32B20E027DE00ED5F83 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A673C12A26E98D8808499375 /* Pods-ARGame.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -472,6 +593,7 @@
 		};
 		3436F32D20E027DE00ED5F83 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6CF420DE4EBFAC8D3B8F969 /* Pods-ARGameTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -493,6 +615,7 @@
 		};
 		3436F32E20E027DE00ED5F83 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54FD38F38E3C649C551F131A /* Pods-ARGameTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -514,6 +637,7 @@
 		};
 		3436F33020E027DE00ED5F83 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FBB43EB1BACC9DC5976D192 /* Pods-ARGameUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -534,6 +658,7 @@
 		};
 		3436F33120E027DE00ED5F83 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12F674813430F09D03146B7D /* Pods-ARGameUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
