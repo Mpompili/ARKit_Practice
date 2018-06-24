@@ -8,12 +8,16 @@
 
 import UIKit
 import ARKit
-
+import Each
 class ViewController: UIViewController {
 
    
     
-
+    @IBOutlet weak var timer: UILabel!
+    var counter = Each(1).seconds
+    var countdown = 10
+    
+    
     @IBOutlet weak var sceneView: ARSCNView!
     let config = ARWorldTrackingConfiguration()
     
@@ -39,17 +43,18 @@ class ViewController: UIViewController {
     
     
     func addNode() {
+        
         let slenderScene = SCNScene(named: "art.scnassets/SlenderMan_Model.scn")
         let slenderNode = slenderScene?.rootNode.childNode(withName: "Slenderman", recursively: false)
-        slenderNode?.position = SCNVector3(rNums(firstNum: -1, secondNum: 1),0, rNums(firstNum: 3, secondNum: -3))
+        slenderNode?.position = SCNVector3(rNums(firstNum: -4, secondNum: 4),0, rNums(firstNum: 4, secondNum: -4))
         slenderNode?.pivot = SCNMatrix4Rotate((slenderNode?.pivot)!, Float.pi, 0, 1, 0)
         let constraint = SCNLookAtConstraint(target: sceneView.pointOfView)
         constraint.isGimbalLockEnabled = true
         slenderNode?.constraints = [constraint]
-//        let spin = CGFloat(degToRadians(degrees: 180))
-//        let rotate = SCNAction.rotateBy(x: 0, y: spin, z: 0, duration: 6)
-//        slenderNode?.runAction(rotate)
-        //        slenderNode?.rotation.z += degToRadians(degrees: 180)
+        let moveToOrigin = SCNAction.move(to: SCNVector3(0,0,0), duration: 8)
+        let alwaysMove = SCNAction.repeatForever(moveToOrigin)
+        slenderNode?.runAction(alwaysMove)
+
         
         self.sceneView.scene.rootNode.addChildNode(slenderNode!)
     }
@@ -61,18 +66,21 @@ class ViewController: UIViewController {
         if hitTest.isEmpty {
             print("didn't hit anything")
         } else {
-            let results = hitTest.first!
-            let node = results.node
-            if node.animationKeys.isEmpty {
-                SCNTransaction.begin()
-                self.animateNode(node: node)
-                SCNTransaction.completionBlock = {
-                    node.removeFromParentNode()
-                    self.addNode()
+            if self.countdown > 0 {
+                let results = hitTest.first!
+                let node = results.node
+                if node.animationKeys.isEmpty {
+                    SCNTransaction.begin()
+                    self.animateNode(node: node)
+                    SCNTransaction.completionBlock = {
+                        node.removeFromParentNode()
+                        self.addNode()
+                        self.restoreTimer()
+                    }
+                    SCNTransaction.commit()
                 }
-                SCNTransaction.commit()
-                
             }
+            
             
             
            print("touched obj")
@@ -88,14 +96,43 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet weak var playBttn: UIButton!
-    @IBAction func reset(_ sender: Any) {
-    }
-
-    @IBAction func play(_ sender: Any) {
-        self.addNode()
-        self.playBttn.isEnabled = false 
+    
+  
+        
+    
+    func setTimer() {
+        self.counter.perform { () -> NextStep in
+            self.countdown -= 1
+            self.timer.text = String(self.countdown)
+            if self.countdown == 0 {
+                self.timer.text = "you lose"
+                return .stop
+            }
+            return .continue
+        }
     }
     
+    func restoreTimer() {
+        self.countdown = 10
+        self.timer.text = String(self.countdown)
+    }
+    
+    @IBAction func reset(_ sender: Any) {
+        self.counter.stop()
+        self.restoreTimer()
+        self.playBttn.isEnabled = true
+    }
+    
+    @IBAction func play(_ sender: Any) {
+        sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
+            node.removeFromParentNode()
+        }
+        self.setTimer()
+        self.addNode()
+        self.playBttn.isEnabled = false
+        
+       
+    }
     
     
 }
@@ -107,3 +144,4 @@ func rNums(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat {
 func degToRadians(degrees:Double) -> Double{
     return degrees * (.pi / 180);
 }
+
