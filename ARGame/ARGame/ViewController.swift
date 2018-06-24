@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         self.sceneView.session.run(config)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
+        self.sceneView.autoenablesDefaultLighting = true
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -33,14 +34,15 @@ class ViewController: UIViewController {
     }
     @IBAction func play(_ sender: Any) {
         self.addNode()
+        self.play.isEnabled = false
+        
     }
     
     func addNode() {
-        let node = SCNNode(geometry: SCNBox(width: 0.2, height: 0.2, length: 0.2, chamferRadius: 0))
-        node.position = SCNVector3(0, 0, -1.5)
-        node.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
-        
-        self.sceneView.scene.rootNode.addChildNode(node)
+        let slenderScene = SCNScene(named: "art.scnassets/SlenderMan_Model.scn")
+        let slenderNode = slenderScene?.rootNode.childNode(withName: "Slenderman", recursively: false)
+        slenderNode?.position = SCNVector3(0,0, -1.5)
+        self.sceneView.scene.rootNode.addChildNode(slenderNode!)
     }
     
     @objc func handleTap(sender: UITapGestureRecognizer) {
@@ -50,8 +52,22 @@ class ViewController: UIViewController {
         if hitTest.isEmpty {
             print("didn't hit anything")
         } else {
+            let results = hitTest.first!
+            let node = results.node
+            if node.animationKeys.isEmpty {
+                self.animateNode(node: node)
+            }
+            
            print("touched obj")
         }
+    }
+    
+    func animateNode(node: SCNNode) {
+        let disappear = CABasicAnimation(keyPath: "opacity")
+        disappear.fromValue = node.presentation.opacity
+        disappear.toValue = 0
+        disappear.duration = 1.5
+        node.addAnimation(disappear, forKey: "opacity")
     }
 
 
