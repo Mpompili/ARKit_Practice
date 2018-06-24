@@ -14,6 +14,8 @@
 		3436F30F20E027DE00ED5F83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3436F30D20E027DE00ED5F83 /* LaunchScreen.storyboard */; };
 		3436F31A20E027DE00ED5F83 /* ARGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3436F31920E027DE00ED5F83 /* ARGameTests.swift */; };
 		3436F32520E027DE00ED5F83 /* ARGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3436F32420E027DE00ED5F83 /* ARGameUITests.swift */; };
+		3436F33520E0309300ED5F83 /* SlenderMan_Model.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 3436F33420E0309200ED5F83 /* SlenderMan_Model.mtl */; };
+		3436F33820E0321900ED5F83 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 3436F33720E0321900ED5F83 /* art.scnassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		3436F32020E027DE00ED5F83 /* ARGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3436F32420E027DE00ED5F83 /* ARGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARGameUITests.swift; sourceTree = "<group>"; };
 		3436F32620E027DE00ED5F83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3436F33420E0309200ED5F83 /* SlenderMan_Model.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SlenderMan_Model.mtl; path = ../../../SlenderMan_Model.mtl; sourceTree = "<group>"; };
+		3436F33720E0321900ED5F83 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +106,9 @@
 				3436F30820E027DC00ED5F83 /* Main.storyboard */,
 				3436F30B20E027DE00ED5F83 /* Assets.xcassets */,
 				3436F30D20E027DE00ED5F83 /* LaunchScreen.storyboard */,
+				3436F33420E0309200ED5F83 /* SlenderMan_Model.mtl */,
 				3436F31020E027DE00ED5F83 /* Info.plist */,
+				3436F33720E0321900ED5F83 /* art.scnassets */,
 			);
 			path = ARGame;
 			sourceTree = "<group>";
@@ -230,6 +236,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3436F30F20E027DE00ED5F83 /* LaunchScreen.storyboard in Resources */,
+				3436F33520E0309300ED5F83 /* SlenderMan_Model.mtl in Resources */,
+				3436F33820E0321900ED5F83 /* art.scnassets in Resources */,
 				3436F30C20E027DE00ED5F83 /* Assets.xcassets in Resources */,
 				3436F30A20E027DC00ED5F83 /* Main.storyboard in Resources */,
 			);
