@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
+//        self.sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
         self.sceneView.session.run(config)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
@@ -41,7 +41,16 @@ class ViewController: UIViewController {
     func addNode() {
         let slenderScene = SCNScene(named: "art.scnassets/SlenderMan_Model.scn")
         let slenderNode = slenderScene?.rootNode.childNode(withName: "Slenderman", recursively: false)
-        slenderNode?.position = SCNVector3(0,0, -1.5)
+        slenderNode?.position = SCNVector3(rNums(firstNum: -1, secondNum: 1),0, rNums(firstNum: 3, secondNum: -3))
+        slenderNode?.pivot = SCNMatrix4Rotate((slenderNode?.pivot)!, Float.pi, 0, 1, 0)
+        let constraint = SCNLookAtConstraint(target: sceneView.pointOfView)
+        constraint.isGimbalLockEnabled = true
+        slenderNode?.constraints = [constraint]
+//        let spin = CGFloat(degToRadians(degrees: 180))
+//        let rotate = SCNAction.rotateBy(x: 0, y: spin, z: 0, duration: 6)
+//        slenderNode?.runAction(rotate)
+        //        slenderNode?.rotation.z += degToRadians(degrees: 180)
+        
         self.sceneView.scene.rootNode.addChildNode(slenderNode!)
     }
     
@@ -55,8 +64,16 @@ class ViewController: UIViewController {
             let results = hitTest.first!
             let node = results.node
             if node.animationKeys.isEmpty {
+                SCNTransaction.begin()
                 self.animateNode(node: node)
+                SCNTransaction.completionBlock = {
+                    node.removeFromParentNode()
+                    self.addNode()
+                }
+                SCNTransaction.commit()
+                
             }
+            
             
            print("touched obj")
         }
@@ -83,3 +100,10 @@ class ViewController: UIViewController {
     
 }
 
+func rNums(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat {
+    return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
+}
+
+func degToRadians(degrees:Double) -> Double{
+    return degrees * (.pi / 180);
+}
