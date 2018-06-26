@@ -11,19 +11,12 @@ import ARKit
 import Each
 class ViewController: UIViewController {
 
-   
-    
     @IBOutlet weak var timer: UILabel!
     var counter = Each(1).seconds
-    var countdown = 10
-    
+    var killCount = 0
     
     @IBOutlet weak var sceneView: ARSCNView!
     let config = ARWorldTrackingConfiguration()
-    
-
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,70 +44,78 @@ class ViewController: UIViewController {
         let constraint = SCNLookAtConstraint(target: sceneView.pointOfView)
         constraint.isGimbalLockEnabled = true
         slenderNode?.constraints = [constraint]
-        let moveToOrigin = SCNAction.move(to: SCNVector3(0,0,0), duration: 8)
-        let alwaysMove = SCNAction.repeatForever(moveToOrigin)
-        slenderNode?.runAction(alwaysMove)
-
+       
+        let originPoint = SCNVector3(0,0,0)
+        let moveToOrigin = SCNAction.move(to: originPoint, duration: Double(rNums(firstNum: 4, secondNum: 6)))
+   
+            slenderNode?.runAction(moveToOrigin, completionHandler: {
+                DispatchQueue.main.async {
+                self.timer.text = "you lose"
+                self.counter.stop()
+                }
+            })
         
-        self.sceneView.scene.rootNode.addChildNode(slenderNode!)
-    }
+         self.sceneView.scene.rootNode.addChildNode(slenderNode!)
+        
+        }
+
     
     @objc func handleTap(sender: UITapGestureRecognizer) {
         let sceneViewTappedOn = sender.view as! SCNView
         let touchCoordinates = sender.location(in: sceneViewTappedOn)
         let hitTest = sceneViewTappedOn.hitTest(touchCoordinates)
+        var gettingHit = false
         if hitTest.isEmpty {
             print("didn't hit anything")
         } else {
-            if self.countdown > 0 {
+            
+            
+            if self.timer.text != "you lose" {
                 let results = hitTest.first!
                 let node = results.node
-                if node.animationKeys.isEmpty {
+                if gettingHit == false {
                     SCNTransaction.begin()
+                    gettingHit = true
                     self.animateNode(node: node)
                     SCNTransaction.completionBlock = {
+                        self.killCount += 1
+                        self.timer.text = String(self.killCount)
+                        SCNTransaction.cancelPreviousPerformRequests(withTarget: self)
                         node.removeFromParentNode()
                         self.addNode()
-                        self.restoreTimer()
                     }
                     SCNTransaction.commit()
+                    gettingHit = false
                 }
             }
-            
+        
             
             
            print("touched obj")
         }
     }
     
+    func animateMovement(node: SCNNode) {
+        let moving = CABasicAnimation(keyPath: "position")
+        moving.fromValue = SCNVector3(rNums(firstNum: -6, secondNum: 6),0, rNums(firstNum: 6, secondNum: -6))
+        moving.toValue = SCNVector3(0, 0, 0)
+        moving.duration = 6
+        node.addAnimation(moving, forKey: "position")
+    }
+    
     func animateNode(node: SCNNode) {
         let disappear = CABasicAnimation(keyPath: "opacity")
         disappear.fromValue = node.presentation.opacity
         disappear.toValue = 0
-        disappear.duration = 1.5
+        disappear.duration = 0.5
         node.addAnimation(disappear, forKey: "opacity")
     }
     
     @IBOutlet weak var playBttn: UIButton!
     
-  
-        
-    
-    func setTimer() {
-        self.counter.perform { () -> NextStep in
-            self.countdown -= 1
-            self.timer.text = String(self.countdown)
-            if self.countdown == 0 {
-                self.timer.text = "you lose"
-                return .stop
-            }
-            return .continue
-        }
-    }
-    
     func restoreTimer() {
-        self.countdown = 10
-        self.timer.text = String(self.countdown)
+        self.killCount = 0
+        self.timer.text = String(self.killCount)
     }
     
     @IBAction func reset(_ sender: Any) {
@@ -127,18 +128,26 @@ class ViewController: UIViewController {
         sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
             node.removeFromParentNode()
         }
-        self.setTimer()
+        self.killCount = 0
+        self.timer.text = String(self.killCount)
         self.addNode()
         self.playBttn.isEnabled = false
-        
-       
     }
-    
     
 }
 
+
 func rNums(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat {
-    return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
+    var result = CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
+    print(result)
+    if result > 0 && result < 2 {
+        result += 3
+    } else if result < 0 && result > -2 {
+        result -= 3
+    }
+    print("after")
+    print(result)
+    return result
 }
 
 func degToRadians(degrees:Double) -> Double{
